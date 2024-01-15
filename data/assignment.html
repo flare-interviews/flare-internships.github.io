@@ -1,0 +1,65 @@
+<!-- ####### HEY, I AM THE SOURCE EDITOR! #########-->
+<p><span style="font-weight: 400;">The objective of your assignment is to write an application that will sort through chat messages and display them to the user. We only want to display messages from a specific time range, and we want to print them in order. Chat messages can be fetched from a web service that returns a JSON payload. The dates used to filter the messages have to be parsed from an HTML page displayed on a website.</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">To get the list of messages, a request can be made to the following endpoint: &ldquo;</span><strong>https://bendoyon.github.io/data/messages.json</strong><span style="font-weight: 400;">&rdquo;. It will return a payload with the following format:</span></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">
+<p><span>[</span></p>
+<p><span>&nbsp;&nbsp;</span><span>{</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"user"</span><span>:</span>&nbsp;<span>"Mark"</span><span>,</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"message"</span><span>:</span>&nbsp;<span>"Hello, is anyone here?"</span><span>,</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"timestamp"</span><span>:</span>&nbsp;<span>1642037302</span></p>
+<p><span>&nbsp;&nbsp;</span><span>},</span></p>
+<p><span>&nbsp;&nbsp;</span><span>{</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"user"</span><span>:</span>&nbsp;<span>"Tommy"</span><span>,</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"message"</span><span>:</span>&nbsp;<span>"Oh, hi Mark!"</span><span>,</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"timestamp"</span><span>:</span>&nbsp;<span>1683045971</span></p>
+<p><span>&nbsp;&nbsp;</span><span>},</span></p>
+<p><span>&nbsp;&nbsp;</span><span>{</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"user"</span><span>:</span>&nbsp;<span>"Martin"</span><span>,</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"message"</span><span>:</span>&nbsp;<span>"I'm from the future!"</span><span>,</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>"timestamp"</span><span>:</span>&nbsp;<span>2337073245</span></p>
+<p><span>&nbsp;&nbsp;</span><span>}</span></p>
+<p><span>]</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">To get the dates used to filter the messages, a request can be made to the following endpoint: &ldquo;</span><strong>https://bendoyon.github.io/data/parameters.html</strong><span style="font-weight: 400;">&rdquo;. It returns some HTML where the parameters can be found.</span></li>
+<ul>
+<li style="font-weight: 400;" aria-level="2"><span style="font-weight: 400;">Bonus: this web page doesn&rsquo;t like being queried by crawlers. It will only return a successful response if it thinks the request is coming from a browser</span></li>
+</ul>
+</ul>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">
+<p><span>&lt;html&gt;</span></p>
+<p><span>&nbsp;&nbsp;&lt;body&gt;</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div</span>&nbsp;<span>id=</span><span>"parameters"</span><span>&gt;</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Start:</span>&nbsp;<span>August</span>&nbsp;<span>10</span><span>,</span>&nbsp;<span>2013</span><span>&lt;/p&gt;</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;End:</span>&nbsp;<span>January</span>&nbsp;<span>11</span><span>,</span>&nbsp;<span>2024</span><span>&lt;/p&gt;</span></p>
+<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;</span></p>
+<p><span>&nbsp;&nbsp;&lt;/body&gt;</span></p>
+<p><span>&lt;/html&gt;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">We want an output formatted in a fashion similar to a chat log, with messages filtered according to the start and end time, in a chronological order. For example:</span></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 100%;">
+<p><span>[Jan 10th, 2023 11:23 AM] Mark: Hey everyone!</span></p>
+<p><span>[Jan 10th, 2023 11:26 AM] Tommy: Oh, hi Mark!</span></p>
+</td>
+</tr>
+</tbody>
+</table>
