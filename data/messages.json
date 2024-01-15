@@ -1,5 +1,10 @@
 [
   {
+    "user": "Martin",
+    "message": "I'm from the future!",
+    "timestamp": 2337073245
+  },
+  {
     "user": "Mark",
     "message": "Hello, is anyone here?",
     "timestamp": 1642037302
@@ -8,10 +13,5 @@
     "user": "Tommy",
     "message": "Oh, hi Mark!",
     "timestamp": 1683045971
-  },
-  {
-    "user": "Martin",
-    "message": "I'm from the future!",
-    "timestamp": 2337073245
   }
 ]
